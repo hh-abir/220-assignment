@@ -3,10 +3,21 @@ class Task2{
 
     //Complete this method so that it gives the Expected Output
     public static void mostWater( Integer[] height ){
-
-        //TO DO
-
-    }
+        int hg = 0;
+        for (int i = 0; i < height.length-1; i++) {
+            for (int j = i+1; j < height.length; j++) {
+                int len = height[j];
+                if (height[i] < height[j]){
+                    len = height[i];
+                }
+                int cal = len * (j-i);
+                if (cal > hg){
+                    hg = cal;
+                }
+            }
+        }
+    System.out.println(hg);    
+}
 
     //DO NOT CHANGE ANY DRIVER CODE BELOW THIS LINE
     public static void main(String[] args){
