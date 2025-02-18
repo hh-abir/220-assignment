@@ -1,12 +1,30 @@
 //Task 01: Merge Sorted Array
 class Task1{
 
-    //Complete this method so that it gives the Expected Output
     public static Integer[] mergeSortedArray( Integer[] arr1, Integer[] arr2 ){
 
-        //TO DO
-        //DELETE the following return statement when you're ready to return the newly Created array
-        return null;
+        int length = arr1.length+arr2.length;
+        Integer[] arr = new Integer[length];
+        int count = arr1.length;
+        for (int i = 0; i < arr1.length; i++) {
+            arr[i] = arr1[i];
+        }
+        int p = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (count == length) break;
+            if (arr[i]!= null && arr2[p]<arr[i]){
+                 for (int j = count-1; j >= i; j--) {
+                    arr[j+1] = arr[j];
+                 }
+                 arr[i] = arr2[p++];
+                 count++;
+            }
+            if (arr[i] == null){
+                arr[i] = arr2[p++];
+                 count++;
+            }
+        }
+        return arr;
 
     }
 
