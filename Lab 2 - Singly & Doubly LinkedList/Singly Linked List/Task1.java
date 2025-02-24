@@ -1,14 +1,20 @@
 // Task05: Alternate Merge
 public class Task1 {
-
+    // TODO: There is a problem in the driver code
     public static Node alternateMerge( Node head1, Node head2 ){
-        
-        //You’re NOT ALLOWED to create a new singly linked list for this task
-
-        //TO DO
-
-        //remove the following line when returning the Head of the modified LinkedList
-        return null;
+        Node temp1 = head1;
+        Node temp2 = head2;
+        Node f = head1;
+        Node s = head2;
+        while (temp1 != null) {
+            f = temp1.next;
+            temp1.next = temp2;
+            s = temp2.next;
+            temp2.next = f;
+            temp1 = f;
+            temp2 = s;
+        }
+        return head1;
     }
 
     //NOTE: if you find any issue with the driver code please inform AIB
