@@ -1,18 +1,22 @@
 // Task05: Alternate Merge
 public class Task1 {
-    // TODO: There is a problem in the driver code
     public static Node alternateMerge( Node head1, Node head2 ){
         Node temp1 = head1;
         Node temp2 = head2;
         Node f = head1;
         Node s = head2;
-        while (temp1 != null) {
-            f = temp1.next;
-            temp1.next = temp2;
+        while (temp1 != null || temp2 != null) {
+            if (temp1 != null){
+                f = temp1.next;
+                temp1.next = temp2;
+                temp1 = f;
+            }
+           if (temp2 != null){
             s = temp2.next;
             temp2.next = f;
-            temp1 = f;
             temp2 = s;
+           }
+            
         }
         return head1;
     }
@@ -30,7 +34,7 @@ public class Task1 {
         Node result = alternateMerge(head1, head2);
         System.out.println("\nExpected output: 1 -> 5 -> 2 -> 7 -> 6 -> 3 -> 8 -> 9 -> 11 -> 4");
         System.out.print( "Your output: ");
-        LinkedList.printLL(result); //This should print 1 -> 5 -> 2 -> 7 -> 6 -> 3 -> 8 -> 9 -> 11 -> 4
+        LinkedList.printLL(result); 
         System.out.println();
         
         System.out.println("\n==============Test Case 2=============");

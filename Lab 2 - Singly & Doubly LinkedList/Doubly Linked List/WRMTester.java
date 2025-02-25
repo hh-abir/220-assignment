@@ -4,11 +4,6 @@ public class WRMTester {
     public static void main(String[] args) {
         System.out.println("** Welcome to Waiting Room Management System **");
         WRM wr = new WRM();
-        // wr.registerPatient(1, "Abir", 5, "Ab");
-        // wr.registerPatient(1, "Afreen", 5, "Ab");
-        // wr.registerPatient(1, "Dip", 5, "Ab");
-        // wr.reverseTheLine();
-        // wr.showAllPatient();
         Scanner sc = new Scanner(System.in);
         
         while (true) {
@@ -42,6 +37,9 @@ public class WRMTester {
                     break;
                 case 4:
                     wr.canDoctorGoHome();
+                    break;
+                case 5:
+                    wr.showAllPatient();
                     break;
                 case 6:
                     wr.reverseTheLine();
