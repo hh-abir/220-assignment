@@ -1,16 +1,35 @@
 // Task04: Word Decoder
+
+
 public class Task2 {
 
     public static Node wordDecoder( Node head ){
-        
-        //You're suppose to create a new Dummy headed Singly Linked List in this method
-        //Dummy head is basically a head Node where the elem is null
-        // Node dHead = new Node(null, null); here the dHead is a Dummy Head
+        Node dHead = new Node(null, null);
+        Node temp = head;
+        int size = 0;
+        while (temp != null){
+            size++;
+            temp = temp.next;
+        }
+        temp = head;
+        int idx =13 % size;
+        char[] arr = new char[size/idx];
+        int index = 0;
+        int arrN = 0;
+        while (temp != null) {
+            if (index % idx == 0 && index != 0){
+                arr[arrN++] = (char) temp.elem;
+            }
+            index++;
+            temp = temp.next;
+        }
 
-        //TO DO
-
-        //remove the following line when you're ready to return the new head
-        return null;
+        temp = dHead;
+        for (int i = arr.length-1; i >= 0; i--) {
+            temp.next = new Node(arr[i]);
+            temp = temp.next;
+        }
+        return dHead;
     }
 
     //NOTE: if you find any issue with the driver code please inform AIB
