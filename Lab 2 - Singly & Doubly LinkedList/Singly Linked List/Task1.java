@@ -1,25 +1,25 @@
 // Task05: Alternate Merge
 public class Task1 {
-    public static Node alternateMerge( Node head1, Node head2 ){
-        Node temp1 = head1;
-        Node temp2 = head2;
-        Node f = head1;
-        Node s = head2;
-        while (temp1 != null || temp2 != null) {
-            if (temp1 != null){
-                f = temp1.next;
-                temp1.next = temp2;
-                temp1 = f;
-            }
-           if (temp2 != null){
-            s = temp2.next;
-            temp2.next = f;
-            temp2 = s;
-           }
-            
+public static Node alternateMerge( Node head1, Node head2 ){
+    Node temp1 = head1;
+    Node temp2 = head2;
+    Node f = head1;
+    Node s = head2;
+    while (temp1 != null || temp2 != null) {
+        if (temp1 != null){
+            f = temp1.next;
+            temp1.next = temp2;
+            temp1 = f;
         }
-        return head1;
+        if (temp2 != null){
+        s = temp2.next;
+        temp2.next = f;
+        temp2 = s;
+        }
+        
     }
+    return head1;
+}
 
     //NOTE: if you find any issue with the driver code please inform AIB
     //DO NOT TOUCH THE DRIVER CODE BELOW

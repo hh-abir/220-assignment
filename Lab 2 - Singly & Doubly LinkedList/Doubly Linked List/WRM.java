@@ -1,7 +1,6 @@
 public class WRM {
     Patient dh;
 
-    //The constructor is already created for you
     public WRM() {
         dh = new Patient(null, null, null, null, null, null);
         dh.next = dh;
@@ -65,7 +64,7 @@ public class WRM {
             return true;
         }
         System.out.println("No");
-        return false; // Delete this line once you're ready
+        return false; 
     }
 
     public void cancelAll() {
@@ -73,7 +72,6 @@ public class WRM {
         dh.prev = null;
         System.out.println("All appointments cancelled");
     }
-
 
     public void reverseTheLine() {
         if (dh.next == null || dh.next.next == dh){
@@ -89,5 +87,4 @@ public class WRM {
         curr.next = curr.prev;
         curr.prev = prev;
     }
-
 }

@@ -1,22 +1,22 @@
 public class Task3 {
-    public static Node idGenerator(Node head1, Node head2, Node head3) {
-        Node prev = null, curr = head1, next;
-        while (curr != null) {
-            next = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = next;
-        }
-        Node tail = head1;
-        while (head2 != null){
-            tail.next = new Node(((int)head2.elem+ (int)head3.elem) % 10);
-            tail = tail.next;
-            head2 = head2.next;
-            head3 = head3.next;
-        }
-        
-        return prev;
+public static Node idGenerator(Node head1, Node head2, Node head3) {
+    Node prev = null, curr = head1, next;
+    while (curr != null) {
+        next = curr.next;
+        curr.next = prev;
+        prev = curr;
+        curr = next;
     }
+    Node tail = head1;
+    while (head2 != null){
+        tail.next = new Node(((int)head2.elem+ (int)head3.elem) % 10);
+        tail = tail.next;
+        head2 = head2.next;
+        head3 = head3.next;
+    }
+    
+    return prev;
+}
 
     //NOTE: if you find any issue with the driver code please inform AIB
     //DO NOT MAKE ANY MODIFICATIONS IN THE TESTER CODE BELOW
