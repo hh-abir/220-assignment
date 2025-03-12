@@ -1,30 +1,26 @@
 //Task 01: Zigzag Walk
 class Task1{
-
-    //Complete this method so that it gives the Expected Output
-    public static void walkZigzag( Integer[][] matrix ){
-        boolean odd = true;
-        for (int i = 0; i < matrix[0].length; i++) {
-            if (odd){
-                for (int j = 0; j < matrix.length; j+= 2) {
-                    System.out.print(matrix[j][i]+ " ");
-                }
-                odd = false;
-            }else{
-                int j = matrix.length-1;
-                if (matrix.length % 2 != 0){
-                    j = matrix.length - 2;
-                }
-                for (; j>=0 ; j-=2) {
-                    System.out.print(matrix[j][i]+ " ");
-                }
-                odd = true;
+public static void walkZigzag( Integer[][] matrix ){
+    boolean odd = true;
+    for (int i = 0; i < matrix[0].length; i++) {
+        if (odd){
+            for (int j = 0; j < matrix.length; j+= 2) {
+                System.out.print(matrix[j][i]+ " ");
             }
-            
-            System.out.println();
-        }
-
+            odd = false;
+        }else{
+            int j = matrix.length-1;
+            if (matrix.length % 2 != 0){
+                j = matrix.length - 2;
+            }
+            for (; j>=0 ; j-=2) {
+                System.out.print(matrix[j][i]+ " ");
+            }
+            odd = true;
+        }    
+        System.out.println();
     }
+}
 
     //DO NOT CHANGE ANY DRIVER CODE BELOW THIS LINE
     public static void main(String[] args){

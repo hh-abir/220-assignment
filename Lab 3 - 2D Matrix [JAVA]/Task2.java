@@ -1,21 +1,19 @@
 //Task 02: Decryption Process
 class Task2{
-    public static Integer[] decryptMatrix( Integer[][] matrix ){
-        Integer[] newArr = new Integer[matrix[0].length - 1];
-        int c = 0;
-        for (int i = 0; i < matrix[0].length-1; i++) {
-            int sum1 = 0;
-            int sum2 = 0;
-            for (int j = 0; j < matrix.length; j++) {
-                 sum1 += matrix[j][i];
-                 sum2 += matrix[j][i+1];
-            }
-            newArr[c++] = sum2 - sum1;
+public static Integer[] decryptMatrix( Integer[][] matrix ){
+    Integer[] newArr = new Integer[matrix[0].length - 1];
+    int c = 0;
+    for (int i = 0; i < matrix[0].length-1; i++) {
+        int sum1 = 0;
+        int sum2 = 0;
+        for (int j = 0; j < matrix.length; j++) {
+                sum1 += matrix[j][i];
+                sum2 += matrix[j][i+1];
         }
-        
-        return newArr;
-
+        newArr[c++] = sum2 - sum1;
     }
+    return newArr;
+}
 
     //DO NOT CHANGE ANY DRIVER CODE BELOW THIS LINE
     public static void main(String[] args){

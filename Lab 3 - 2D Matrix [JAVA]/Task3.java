@@ -1,26 +1,26 @@
 // Task 03: Row Rotation Policy of BRACU Classroom
 class Task3 {
 
-    public static Integer rowRotation(Integer examWeek, String[][] matrix) {
+public static Integer rowRotation(Integer examWeek, String[][] matrix) {
+    examWeek--;
+    while (examWeek != 0) {
+        String[] temp = matrix[matrix.length - 1];
+        for (int i = matrix.length - 2; i >= 0; i--) {
+            matrix[i + 1] = matrix[i];
+        }
+        matrix[0] = temp;
         examWeek--;
-        while (examWeek != 0) {
-            String[] temp = matrix[matrix.length - 1];
-            for (int i = matrix.length - 2; i >= 0; i--) {
-                matrix[i + 1] = matrix[i];
-            }
-            matrix[0] = temp;
-            examWeek--;
-        }
-        Arr.print2D(matrix);
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                if (matrix[i][j].equals("AA")){
-                    return i+1;
-                }
-            }
-        }
-        return -1;
     }
+    Arr.print2D(matrix);
+    for (int i = 0; i < matrix.length; i++) {
+        for (int j = 0; j < matrix[i].length; j++) {
+            if (matrix[i][j].equals("AA")){
+                return i+1;
+            }
+        }
+    }
+    return -1;
+}
 
     // DO NOT CHANGE ANY DRIVER CODE BELOW THIS LINE
     public static void main(String[] args) {

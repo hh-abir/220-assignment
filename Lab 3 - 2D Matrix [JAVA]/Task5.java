@@ -1,33 +1,32 @@
 // Task 05: Game Arena
 class Task5 {
-
-    public static void playGame(Integer[][] arena) {
-        int totalPoints = 0;
-        for (int i = 0; i < arena.length; i++) {
-            for (int j = 0; j < arena[i].length; j++) {
-                if (arena[i][j] != 0 && arena[i][j] % 50 == 0) {
-                    if (i + 1 < arena.length && arena[i + 1][j] == 2) {
-                        totalPoints += 2;
-                    }
-                    if (j+1 < arena[i].length && arena[i][j + 1] == 2) {
-                        totalPoints += 2;
-                    }
-                    if (i - 1 >= 0 && arena[i - 1][j] == 2) {
-                        totalPoints += 2;
-                    }
-                    if (j - 1 >= 0 && arena[i][j - 1] == 2) {
-                        totalPoints += 2;
-                    }
+public static void playGame(Integer[][] arena) {
+    int totalPoints = 0;
+    for (int i = 0; i < arena.length; i++) {
+        for (int j = 0; j < arena[i].length; j++) {
+            if (arena[i][j] != 0 && arena[i][j] % 50 == 0) {
+                if (i + 1 < arena.length && arena[i + 1][j] == 2) {
+                    totalPoints += 2;
+                }
+                if (j+1 < arena[i].length && arena[i][j + 1] == 2) {
+                    totalPoints += 2;
+                }
+                if (i - 1 >= 0 && arena[i - 1][j] == 2) {
+                    totalPoints += 2;
+                }
+                if (j - 1 >= 0 && arena[i][j - 1] == 2) {
+                    totalPoints += 2;
                 }
             }
         }
-        System.out.print("Points Gained: " + totalPoints);
-        if (totalPoints >= 10) {
-            System.out.println("  Your team has survived the game.");
-        } else {
-            System.out.println("  Your team is out.");
-        }
     }
+    System.out.print("Points Gained: " + totalPoints);
+    if (totalPoints >= 10) {
+        System.out.println("  Your team has survived the game.");
+    } else {
+        System.out.println("  Your team is out.");
+    }
+}
 
     public static void main(String[] args) {
         Integer[][] arena = {
