@@ -55,19 +55,25 @@ public class HashTable {
         }
     }
 
-	//you need to COMPLETE this method
-    //Complete this method first the write remove
     private int hashFunction( Integer key ){
-        // TO DO
-
-        return -1; //remove this line
+        return (key + 3) % ht.length;
     }
 
 
-	//you need to COMPLETE this method
-    //before writing remove you should complete hashFunction
     public void remove( Integer key ){
-        // TO DO 
+        int idx = hashFunction(key);
+        PairNode temp = ht[idx];
+        while (temp != null) {
+            if ((Integer)temp.key == key){
+                ht[idx] = temp.next;
+                return;
+            }
+            if (temp.next != null && (Integer)temp.next.key == key){
+                temp.next = temp.next.next;
+                return;
+            }
+            temp = temp.next;
+        }
     }
 
 }

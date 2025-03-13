@@ -7,7 +7,8 @@ public class FruitNode {
     FruitNode next;
 
     public FruitNode(String name, Integer price){
-        // TO DO
+        fruit[0] = name;
+        fruit[1] = price;
     }
     
 }

@@ -1,24 +1,53 @@
 public class StackTasksTester {
     
     // Task 4
-    // You have to write this method
     public static int diamondCount(Stack stack, String str) {
-        // To Do
-        // As the stack is storing int type data in the stack and you are checking a String. Consider '>' = 1, '<' = 2 and '.' = 3 for mapping String with integer.
-        return -1; // Delete this line
+        int count = 0;
+        String[] arr = str.split("");
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i].equals("<")){
+                stack.push((int)'<');
+            }
+            if (arr[i].equals(">")){
+                if (!(stack.isEmpty()) && stack.peek() == 60){
+                    stack.pop();
+                    count++;
+                }
+            }
+        }
+        return count;
     }
 
     // Task 5
-    // You have to write this method
     public static void removeBlock(Stack stack, int n) {
-        // To Do
+        Stack temp = new Stack();
+        while (n != 0) {
+            if (n == 1){
+                stack.pop();
+            }else{
+                temp.push(stack.pop());
+            }
+            n--;
+        }
+        while (!(temp.isEmpty())) {
+            stack.push(temp.pop());
+        }
     }
 
     // Task 6
     // You have to write this method
     public static Stack conditionalReverse(Stack stack) {
-        // To Do
-        return null; //remove this line once your're done
+        Stack temp = new Stack();
+        while (!(stack.isEmpty())) {
+            if (temp.peek() != stack.peek()){
+                temp.push(stack.pop());
+            }else{
+                stack.pop();
+            }
+        }
+        stack = temp;
+
+        return stack;
     }
 
     //DO NOT CHANGE THIS METHOD

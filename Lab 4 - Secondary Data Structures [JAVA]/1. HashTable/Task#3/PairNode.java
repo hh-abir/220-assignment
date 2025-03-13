@@ -5,7 +5,9 @@ public class PairNode {
     PairNode next;
 
     public PairNode( Integer k, String v ){
-        // TO DO
+        this.key = k;
+        this.value = v;
+        
     }
     
 }
