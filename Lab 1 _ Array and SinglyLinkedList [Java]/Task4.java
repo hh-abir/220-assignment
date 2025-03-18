@@ -2,10 +2,14 @@
 public class Task4 {
 
 public static Boolean assembleCongaLine(Node head) {
-    while (head.next != null) {
-        if ((Integer) head.elem > (Integer) head.next.elem)
+    Node prev = null;
+    Node temp = head;
+    while (temp != null) {
+        if (prev != null && (int) prev.elem > (int) temp.elem){
             return false;
-        head = head.next;
+        }
+        prev = temp;
+        temp = temp.next;
     }
     return true;
 }

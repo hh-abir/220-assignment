@@ -13,22 +13,18 @@ public static Node wordDecoder( Node head ){
     }
     temp = head;
     int idx =13 % size;
-    char[] arr = new char[size/idx];
-    int index = 0;
-    int arrN = 0;
+    int count = 0;
+    Node p = null;
     while (temp != null) {
-        if (index % idx == 0 && index != 0){
-            arr[arrN++] = (char) temp.elem;
+        Node t = temp.next;
+        if (count != 0 && count % idx == 0){
+            temp.next = p;
+            p = temp;
         }
-        index++;
-        temp = temp.next;
+        temp = t;
+        count++;
     }
-
-    temp = dHead;
-    for (int i = arr.length-1; i >= 0; i--) {
-        temp.next = new Node(arr[i]);
-        temp = temp.next;
-    }
+    dHead.next = p;
     return dHead;
 }
 

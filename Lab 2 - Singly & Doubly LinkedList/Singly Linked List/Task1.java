@@ -4,18 +4,14 @@ public static Node alternateMerge( Node head1, Node head2 ){
     Node temp1 = head1;
     Node temp2 = head2;
     Node f = head1;
-    Node s = head2;
-    while (temp1 != null || temp2 != null) {
-        if (temp1 != null){
-            f = temp1.next;
-            temp1.next = temp2;
-            temp1 = f;
-        }
-        if (temp2 != null){
-        s = temp2.next;
-        temp2.next = f;
-        temp2 = s;
-        }
+    Node p = head2;
+    while (temp1 != null && temp2 != null) {
+        temp1 = temp1.next;
+        temp2 = temp2.next;
+        f.next = p;
+        p.next = temp1;
+        f = temp1;
+        p = temp2;
         
     }
     return head1;

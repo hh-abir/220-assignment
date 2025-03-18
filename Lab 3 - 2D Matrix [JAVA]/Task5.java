@@ -8,7 +8,7 @@ public static void playGame(Integer[][] arena) {
                 if (i + 1 < arena.length && arena[i + 1][j] == 2) {
                     totalPoints += 2;
                 }
-                if (j+1 < arena[i].length && arena[i][j + 1] == 2) {
+                if (j+1 < arena.length && arena[i][j + 1] == 2) {
                     totalPoints += 2;
                 }
                 if (i - 1 >= 0 && arena[i - 1][j] == 2) {
