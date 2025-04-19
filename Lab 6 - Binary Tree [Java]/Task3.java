@@ -1,7 +1,5 @@
 // Complete the sumTree method
 
-import java.util.ArrayList;
-
 public class Task3 {
 
         //===================================TASK#3===================================
