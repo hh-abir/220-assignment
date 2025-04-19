@@ -10,51 +10,24 @@ public class Task3 {
         // At times you may need to typeCast root.elem to Integer
         // You can use extra helper private static methods as per need
         public static Integer sumTree( BTNode root ){
-            int sum = 0;
-            for (int i = 0; i <= height(root); i++) {
-                ArrayList<Integer> list = getNodesAtDistance(root, i);
-                int temp = 0;
-                for (int j = 0; j < list.size(); j++) {
-                    if (i != 0){
-                        temp += (Integer) list.get(j) % i;
-                    }else{
-                        temp = (Integer) list.get(j);
-                        break;
-                    }
-                }
-                sum += temp;
-            }
-            return sum;
+            int[] sum = new int[1];
+            sumOfNodes(root, sum, 0);
+            return sum[0];
         }
-
-        private static int height(BTNode root){
-            if (root == null){
-                return 0;
-            }
-            if (root.left == null && root.right == null){
-                return 0;
-            }
-            
-            return 1 + Math.max(height(root.left), height(root.right));
-        }
-
-        private static ArrayList<Integer> getNodesAtDistance(BTNode root, int distance){
-            ArrayList<Integer> list = new ArrayList<>();
-            getNodesAtDistance(root, distance, list);
-            return list;
-        }
-
-        private static void getNodesAtDistance(BTNode root, int distance, ArrayList<Integer> list){
+        private static void sumOfNodes(BTNode root,int[] sum, int lvl){
             if (root == null){
                 return;
             }
-            if (distance == 0){
-                list.add((Integer)root.elem);
-                return;
+            if (lvl != 0){
+               sum[0] += ((Integer) root.elem%lvl);
+            }else{
+                sum[0] += (Integer) root.elem;
             }
-            getNodesAtDistance(root.left, distance-1, list);
-            getNodesAtDistance(root.right, distance-1, list);
+            sumOfNodes(root.left, sum, lvl+1);
+            sumOfNodes(root.right, sum, lvl+1);
         }
+
+        
         //============================================================================
 
 }
