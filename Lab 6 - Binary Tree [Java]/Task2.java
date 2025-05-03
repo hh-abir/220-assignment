@@ -10,16 +10,16 @@ public class Task2 {
     // Updating the levelArray should be the main goal of this method
     // At times you may need to typeCast root.elem to Integer
     // This method doesn't return anything
-    public static void smallestLevel( BTNode root, Integer[] levelArray, int lvl ){
-        if (root == null){
-            return;
-        }
-        if (levelArray[lvl] == null || (Integer) root.elem < levelArray[lvl]){
-            levelArray[lvl] = (Integer) root.elem;
-        }
-        smallestLevel(root.left, levelArray, lvl+1);
-        smallestLevel(root.right, levelArray, lvl+1);
+public static void smallestLevel( BTNode root, Integer[] levelArray, int lvl ){
+    if (root == null){
+        return;
     }
+    if (levelArray[lvl] == null || (Integer) root.elem < levelArray[lvl]){
+        levelArray[lvl] = (Integer) root.elem;
+    }
+    smallestLevel(root.left, levelArray, lvl+1);
+    smallestLevel(root.right, levelArray, lvl+1);
+}
     //============================================================================
 
 }

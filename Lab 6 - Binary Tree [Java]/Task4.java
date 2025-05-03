@@ -25,7 +25,6 @@ public class Task4 {
         if ( root.right != null){
             swapChild(root.right, lvl+1, M);
         }
-        return;
     }
     //============================================================================
 }

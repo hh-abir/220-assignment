@@ -11,9 +11,11 @@ public static String checkSimilar(Node building1, Node building2) {
     }
     if (building1 == null && building2 == null)
         return "Similar";
-
-    return "Not Similar";
+    if (building1 == null || building2 == null)
+        return "Not Similar";
+    return "Similar";
 }
+
 
     // NOTE: if you find any issue with the driver code please inform AIB
     // DO NOT TOUCH THE DRIVER CODE BELOW

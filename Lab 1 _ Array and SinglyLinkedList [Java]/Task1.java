@@ -1,32 +1,31 @@
 //Task 01: Merge Sorted Array
 class Task1 {
 
-public static Integer[] mergeSortedArray(Integer[] arr1, Integer[] arr2) {
-    int length = arr1.length + arr2.length;
-    Integer[] arr = new Integer[length];
-    int a = 0;
-    int b = 0;
-    for (int i = 0; i < arr.length; i++) {
-        if (a == arr1.length){
-            arr[i] = arr2[b];
-            b++;
-            continue;
+    public static Integer[] mergeSortedArray(Integer[] arr1, Integer[] arr2) {
+        int length = arr1.length + arr2.length;
+        Integer[] arr = new Integer[length];
+        int count = arr1.length;
+        for (int i = 0; i < arr1.length; i++) {
+            arr[i] = arr1[i];
         }
-        if (b == arr2.length){
-            arr[i] = arr1[a];
-            a++;
-            continue;
+        int p = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (count == length)
+                break;
+            if (arr[i] != null && arr2[p] < arr[i]) {
+                for (int j = count - 1; j >= i; j--) {
+                    arr[j + 1] = arr[j];
+                }
+                arr[i] = arr2[p++];
+                count++;
+            }
+            if (arr[i] == null) {
+                arr[i] = arr2[p++];
+                count++;
+            }
         }
-        if (arr1[a] < arr2[b]){
-            arr[i] = arr1[a];
-            a++;
-        }else{
-            arr[i] = arr2[b];
-            b++;
-        }
+        return arr;
     }
-    return arr;
-}
 
     // DO NOT CHANGE ANY DRIVER CODE BELOW THIS LINE
     public static void main(String[] args) {

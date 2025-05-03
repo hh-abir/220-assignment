@@ -1,18 +1,14 @@
 // Task03: Assemble Conga Line
 public class Task4 {
 
-public static Boolean assembleCongaLine(Node head) {
-    Node prev = null;
-    Node temp = head;
-    while (temp != null) {
-        if (prev != null && (int) prev.elem > (int) temp.elem){
-            return false;
+    public static Boolean assembleCongaLine(Node head) {
+        while (head.next != null) {
+            if ((Integer) head.elem > (Integer) head.next.elem)
+                return false;
+            head = head.next;
         }
-        prev = temp;
-        temp = temp.next;
+        return true;
     }
-    return true;
-}
 
     // NOTE: if you find any issue with the driver code please inform AIB
     // DO NOT TOUCH THE DRIVER CODE BELOW
