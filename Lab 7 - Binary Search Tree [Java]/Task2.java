@@ -1,16 +1,48 @@
-// Complete the sumOfLeaves method
 public class Task2 {
-
-    //===================================TASK#2===================================
-    // This method takes only 2 parameters
-    // 1st one is root
-    // 2nd one is an Integer
-    // You'll need to find the path from the root to a node containing the Integer
-    // return the path as a String
-    public static String findPath( BSTNode root, Integer key ){
-        // TO DO
-        return null; //remove this line
+public static String findPath(BSTNode root, int key) {
+    int maxDepth = 100;
+    int[] path = new int[maxDepth];
+    boolean found = checkPath(root, key, path, 0);
+    String output = "";
+    if (found) {
+        int t = 0;
+        for (int i = 0; i < maxDepth; i++) {
+            if (path[i] == key) {
+                t = i + 1;
+                break;
+            }
+        }
+        for (int i = 0; i < t; i++) {
+            output += path[i];
+            if (i != t - 1) {
+                output += " ";
+            }
+        }
+    } else {
+        return "No Path Found";
     }
-    //============================================================================
+    return output;
+}
+
+public static boolean checkPath(BSTNode root, int key, int[] waytoLeaf, int len) {
+    if (root == null) {
+        return false;
+    }
+    waytoLeaf[len] = root.elem;
+    len++;
+
+    if (root.elem == key) {
+        return true;
+    }
+
+    if (checkPath(root.left, key, waytoLeaf, len)) {
+        return true;
+    }
+    if (checkPath(root.right, key, waytoLeaf, len)) {
+        return true;
+    }
+
+    return false;
+}
 
 }

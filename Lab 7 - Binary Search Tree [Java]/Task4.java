@@ -1,15 +1,26 @@
 // Complete the sumOfLeaves method
 public class Task4 {
 
-    //===================================TASK#4======================
-    // This method takes only one parameter
-    // it is root of the given tree
-    // You can use extra helper private static methods as per need
-    public static Integer mirrorSum( BSTNode root ){
-        //TO DO
-        return -1; // remove this line
+public static Integer mirrorSum(BSTNode root) {
+    if (root == null) {
+        return 0;
     }
-    //===============================================================
+    int[] sumAr = new int[1];
+    sumCalulate(root.left, root.right, sumAr);
+    return sumAr[0];
+}
 
+private static void sumCalulate(BSTNode leftNode, BSTNode rightNode, int[] sumHolder) {
+    if (leftNode == null && rightNode == null) {
+        return;
+    }
+    if (leftNode == null || rightNode == null) {
+        return;
+    }
 
+    sumHolder[0] = sumHolder[0] + leftNode.elem + rightNode.elem;
+
+    sumCalulate(leftNode.left, rightNode.right, sumHolder);
+    sumCalulate(leftNode.right, rightNode.left, sumHolder);
+}
 }
